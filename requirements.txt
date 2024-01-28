@@ -14,3 +14,4 @@ pypika-tortoise==0.1.4
 asyncpg
 lxml
 yoyo-migrations
+psycopg2-binary
