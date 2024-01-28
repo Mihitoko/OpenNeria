@@ -1,0 +1,89 @@
+{
+  "emojis": {},
+  "nail": [
+    "<put thumbnails here>"
+  ],
+  "icons": {},
+  "colors": {
+    "default": [
+      "0x477ad1"
+    ],
+    "error": [
+      "0xc50000"
+    ],
+    "ok": [
+      "0x38860a"
+    ],
+    "info": [
+      "0xcda60b"
+    ],
+    "color_map": [
+      "#1abc9c",
+      "#e74c3c",
+      "#2ecc714",
+      "#3498db",
+      "#9b59b6",
+      "#9b59b6",
+      "#34495e",
+      "#16a085",
+      "#27ae60",
+      "#2980b9",
+      "#8e44ad",
+      "#2c3e50",
+      "#f1c40f",
+      "#e67e22",
+      "#a29bfe",
+      "#95a5a6",
+      "#f39c12",
+      "#d35400",
+      "#c0392b",
+      "#00b894",
+      "#ffeaa7",
+      "#e84393",
+      "#2d3436",
+      "#74b9ff",
+      "#EBB6F0",
+      "#10C5DF",
+      "#76E734",
+      "#13E247",
+      "#4F1790",
+      "#6DBCAF"
+    ]
+  },
+  "chart_templates": {
+    "character_distribution": {
+      "chart": {
+        "type": "outlabeledPie",
+        "data": {
+          "labels": null,
+          "datasets": [
+            {
+              "backgroundColor": null,
+              "data": null
+            }
+          ]
+        },
+        "options": {
+          "title": {
+            "display": true,
+            "text": "Character distribution",
+            "fontColor": "#ffffff"
+          },
+          "plugins": {
+            "legend": false,
+            "outlabels": {
+              "text": "%l %p",
+              "color": "white",
+              "stretch": 35,
+              "font": {
+                "resizable": true,
+                "minSize": 10,
+                "maxSize": 18
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

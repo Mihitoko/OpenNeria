@@ -1,0 +1,8 @@
+project_id: C:\Users\max-l\PycharmProjects\Neria
+default: en
+out: /locales/gen
+template_folder: /locales/templates
+templates:
+  en:
+    file_name: en.yaml
+    class_name: EnLanguageSchema

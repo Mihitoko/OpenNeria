@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "debug": true,
+  "top_gg": false,
+  "debug_guilds": [
+  ],
+  "emoji_icons": [
+    "ok",
+    "info",
+    "error",
+    "default"
+  ],
+  "emoji_server": 1234,
+  "icon_store_channel": 1234,
+  "force_emoji_update": false,
+  "loglvl": "DEBUG",
+  "error_ch": 1234
+}

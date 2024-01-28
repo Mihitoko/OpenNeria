@@ -1,0 +1,355 @@
+# Put your language data here.
+# Refer to the docs to soo how the structure has to be
+group@Commands:
+
+  group@Characters:
+
+    group@api_sync:
+      group@setup:
+        title: "Attention please read!!!"
+        desc: "This feature is using an **unofficial** api from amazon it may break at any time.\n
+        To setup you lost ark sync you have to install the lost ark twitch extension and enable it.\n
+        After that you can type in your Twitch accounts name by pressing the button below and you are done.\n
+        [Video]({video_url})"
+
+        title_failed: "Setup failed"
+        desc_failed: "I cant find the provided twitch user."
+
+        title_ok: "Setup complete"
+        desc_ok: "I found your Twitch user name and liked it to your account.\nRun command `/character api_sync resync`
+        to link a character from the lost ark game."
+
+      group@link:
+        title: "Link a character"
+        desc: "Please choose a character to link.\nPlease make sure this character is online in lost ark as well.\n
+        **Linking can take some seconds to complete**"
+
+        title_error: "Could not link characters"
+        desc_error: "Please make sure that the character is 
+        online and that you have the Twitch extension installed and activated."
+
+        title_ok: "Link successful"
+        desc_ok: "Character is now linked to character {char_name} with lost ark id {api_id}."
+
+      group@resync:
+        title: "Resync character with api."
+        desc: "Choose a character to resync with lost ark.\nMake sure this character is online."
+
+        title_error: "Unable to sync"
+        desc_char_error: "Character seems to be offline."
+        desc_amazon_error: "Something went wrong while syncing. If the problem persists please reach out in the support server.\n**Not: This feature is still in early beta.**\n(Server)[{server}]"
+        desc_ext_error: "Extension seems to be not installed **PLEASE** make sure that the extension is active.\n**RIGHT COLUMN**"
+
+        title_ok: "Sync successful"
+        desc_ok: "Synced {name} from Last Ark with id **{api_id}**"
+
+    group@Register:
+
+      title: "Register a new character."
+      desc_first: "Hello im Neria ^^\nTime to setup your first character.\n
+      To start please select the class your character is from below.\n
+      After that i'll send you a paper where you can fill out information like name and gear score"
+      desc: "Okay lets register a new character.\nPlease select the class from bellow."
+
+      bard_special: "Ohh a Bard...\nThese are pretty rare but don't worry i can already see the people gathering 
+      around you because they need supporters for raids hehe~.\n\nAnyway **{name}** is registered."
+
+      fin: "I registered **{name} ({class_name} | {lvl})** for you.\nYou can always reach out to me when you want to plan a new raid."
+      modal_title: "Register your character"
+
+    group@Edit:
+      title: "Edit your characters"
+      title_no_char: "No characters registered"
+      no_char_desc: "I can't find any characters related to you.\nYou can always ask me to register one for you."
+      edit_desc: "Please tell me which character you want to edit by selecting one from bellow."
+      edit_complete: "I successfully registered the changes for character **{name}**\nI wish you best luck while raiding~"
+      edited_title: "Character updated"
+      modal_title: "Please type in the changes."
+
+    group@Delete:
+      title_no_char: "No characters registered"
+      no_char_desc: "I can't find any characters related to you.\nYou can always ask me to register one for you."
+      title: "Delete character"
+      desc: "Oh...\nOfcourse i can delete characters related to you.\nPlease select one from the list bellow."
+      deleted_desc: "I removed **{name}** from your records.\nI hope you find a class that suits you more. Or it was just a throw away alt ¯\\_(ツ)_/¯"
+      deleted_title: "{name} deleted"
+
+  group@General:
+    group@Profile:
+      title_self: "Your profile ^^"
+      title_other: "Profile of {name}"
+      desc: "This is the profile of {mention}.\nHere you can see registered characters, scheduled raids and more.\n"
+      char_field_title: "{emoji} | Characters: "
+      no_char: "`No characters registered`"
+      class_template: "{emoji} **{name} ({class_type} | {gs})**\n"
+      event_template: "`{counter}`. **{name}** | <t:{time}> [jump]({msg})\n"
+      event_tile: "{emoji} | Registered lfg's:"
+      no_event: "`Not registered in any.`"
+
+    group@help:
+      desc:
+        "
+        Need further help? Join the support [server]({server_url})\n
+        __**Commands:**__\n
+        `/help` Shows this message.\n
+        `/profile` Shows profile of a member.\n
+        `/server_status` Shows the status af all western Lost Ark servers.\n
+        `/server_info` Shows basic information about this discord server.\n
+        `/character register` Register a character to your account\n
+        `/character edit` Edit a character\n
+        `/character delete` Delete a character\n
+        `/character api_sync setup` Setup Lost Ark sync (beta)\n
+        `/character api_sync setup` Sync a character with the lost ark game (beta)\n
+        `/lfg schedule` Schedule a lfg\n
+        `/lfg cancel` Cancel a Scheduled lfg\n
+        `/lfg create_preset` Create a preset to create lfg's\n
+        `/lfg delete_preset` Delete a preset\n
+        `/lfg show_preset` Shows a selected preset\n
+        `/lfg edit` Added an already scheduled event\n
+        `/config manager_role` Choose a manager role\n
+        `/config timezone_offset` Choose a offset to make dates timezone aware.\n
+        `/config delete_lfg_after` Auto deletes lfg messages after given delay.\n
+        `/config log_channel` Setup a channel where deregister reasons are posted.
+        "
+
+    group@server_info:
+      header: "Server Info"
+      desc: "Information from **{server_name}**.\nTimezone offset: **{offset}** hours.\nSaved presets: **{preset_count}**\nRunning events: **{event_count}**\nDelete lfg messages **{delay_string}**"
+      event_header: "{emoji} | Active events"
+      event_template: "`{counter}`. **{name}** | <t:{time}> [jump]({msg})\n"
+      no_event: "`No event registered.`"
+
+    group@bot_info:
+      header: "Info about the Neria bot."
+      tech_header: "{emoji} __**Technology used:**__"
+      tech_desc: "`Language`: **Python**\n`Api wrapper`: **discord.py**\n`DBMS`: **PostgresSQL**\n`ORM`: **Tortoise-orm**"
+      stats_header: "{emoji} __**Bot stats:**__"
+      stats_desc: "`Server count`: **{guild_count}**\n`User count`: **{user_count}**\n`Character count`: **{char_count}**"
+
+  group@Event:
+    group@schedule:
+      loading_title: "Working on it..."
+      loading_desc: "Im currently setting up your LFG please give me some time >-<"
+      weekly_no_perms: "Missing permissions"
+      weekly_no_perms_desc: "Weekly lfg's require the bot to have send messages permissions in the channel the lfg is created.\n
+      This message is send via a webhook interaction and ignores the permission that is the reason you can see it. Please make sure to enable the permission before running the
+      command again."
+
+    group@create_preset:
+      modal_title: "Create an LFG preset"
+      title: "Preset {name}"
+      desc: "Preset **{name}** is now shown.\nPlease do me a favor and check the summary bellow."
+      sum_title: "{emoji} | __**Summary:**__"
+      summary: "Preset name: **{name}**\nEvent title: **{event_title}**\n
+      Max players: {max_players}\nEvent description:\n{desc}"
+      advanced_title: "{emoji} | __**Advanced settings:**__"
+      advanced_desc: "Minimum gearscore: **{gs}**\nMax duplicate classes: **{dups}**\nMinimum supports: **{min_sup}**\nPrio roles: {roles}\nPrio role ignore time: **{role_ignore}** minutes before start.
+      \nPing roles: {ping_roles}\nProvide reason on exit: **{reason_state}**"
+      max_preset_title: "Max amount reached."
+      max_preset_desc: "You reached the maximum amount of presets you can create."
+
+    group@delete_preset:
+      title: "Delete a preset."
+      desc: "Okay. I deleted preset **{pre}** for you."
+
+    group@cancel:
+      title: "Cancel an LFG"
+      desc: "Please select a scheduled lfg from bellow that you want to cancel"
+      title_ok: "LFG canceled"
+      desc_ok: "I canceled the LFG {title} for you.."
+      desc_not_lfg: "I cant find any lfg's related to you.\nSo im unable to offer you a delete option ;("
+      title_no_lfg: "No LFG found"
+
+    group@edit:
+      title: "Edit an LFG"
+      desc: "Please select one of the scheduled lfg's from bellow that you want to edit."
+      title_ok: "Update your LFG"
+      desc_ok: "Please update your lfg with the buttons below.\n**NOTE:** 
+      The edit does not take the current state of the lfg into account. For example when you reduce the max_players to 3 but there are 5 in the group nobody will get kicked out."
+      desc_not_lfg: "I cant find any lfg's related to you.\nSo im unable to offer you a delete option ;("
+      title_no_lfg: "No LFG found"
+
+  group@settings:
+    group@manager_role:
+      title: "Manager role configured"
+      desc: "I set the new manager role.\nEveryone with the role {role} can now make changes to the bot."
+      desc_unset: "I deleted the manager role and only people with Admin permissions are now able to configure the bot."
+
+    group@time_offset:
+      title_acive: "Offset changed"
+      title_help: "About timezones"
+      desc_help: "To make the bot easier to use for everyone you can specify a timezone offset.\nThis offset is the amount of hours your timezone is different to the **UTC** timezone.\n
+      You can check the UTC time at [this]({web}) website.\nJust use the command `config timezone_offset` with the offset option and type in the difference from -23 hours to + 23 hours.\n
+      After that your dates are localized to your timezone.\n**Note:** This does not apply to already scheduled events."
+
+      desc_normal: "Okay.\nI updated your timezone offset to **{offset}** hours."
+
+    group@delay_setting:
+      title: "Set a delay"
+      desc: "The delay specifies when lfg messages will be deleted after the lfg ended."
+      desc_fin: "New lfg delete delay set."
+      title_fin: "Delay set"
+
+    group@log_channel:
+      title: "Set a log channel"
+      desc: "{channel} is now set as the log channel."
+
+
+group@utils:
+  group@event_message:
+    info_header: "{info_emoji} __**Info:**__"
+    info_field: "Creator: {mention}\nStart: <t:{stamp}>\nMax players: **{max_players}**"
+    advanced_settings: "{emoji} | __**Advanced settings**__:"
+    advanced_value: "Minimum gearscore: **{gs}**\nMax same classes: **{max_class}**\nMinimum supporters: `{current_supp}`**/**`{max_supp}`\nPrio roles: {roles}\nIgnore prio roles **{prio_role}** minutes before start.\nProvide reason on exit: **{reason_state}**"
+    character_header: "{character_emoji} | __**Participants ({current}/{max}):**__"
+    subtitudes: "{substitute_emoji} | __**Substitutes:**__"
+    member_info: "{emoji} | {mention} **{name} ({class_type} | {gs})**"
+    desc_suffix: "\n__**Please press one of the buttons below to register for that LFG.**__"
+    class_template: "{emoji} **{name} ({class_type} | {gs})**\n"
+    no_part: "`No participants`"
+    no_sub: "`No substitutes`"
+
+  group@delete_event_message:
+    title_q: "Event message deleted!!!"
+    title_desc: "This message was an active event.\nIf do you want to restore the message?\nOtherwise the event will be canceled."
+    title_c: "Event canceled."
+    desc_c: "The corresponding event is now canceled."
+
+  group@kick_callback:
+    header: "Choose a participant."
+    desc: "Please choose a participant you want to kick from this LFG."
+    error_header: "Unable to kick."
+    no_part: "This LFG currently has no participants."
+    to_many_parts: "Kicking is only available for LFG with a maximum of 25 participants."
+    suc: "I kicked **{char_name}** ({discord_mention}) for you."
+    suc_header: "Participant kicked."
+    no_perm: "Only the LFG creator can kick participants."
+
+  group@deregister_callback:
+    success_header: "Send!!!"
+    success_desc: "Reason was send to lfg admin."
+    item_label: "Provide reason: "
+    modal_title: "Why do you leave this lfg?"
+
+    report_title: "{user_name} left lfg!!!"
+    report_desc: "I'm here to inform you that {user_mention} left the following lfg: {lfg_name}\n__Provided reason:__\n**{reason}**"
+
+
+  group@preset_modify:
+    header: "pass"
+
+  group@notify_cancel:
+    title: "Scheduled LFG canceled"
+    desc: "{creator_mention} asked me to cancel a scheduled lfg.\n
+    Im here to notify you that the LFG **{title}** that would have started on <t:{stamp}> is canceled."
+
+  group@notify_start:
+    title: "LFG starts soon"
+    desc: "Hello {mention},\nI'm here to remind you that:\n**{title}** starts at <t:{stamp}>.\n
+    Please get ready and good luck raiding~"
+
+  group@register_callback:
+    title: "Select a character"
+    desc: "Please select a character from bellow to  the registration.\nI know you have to do this often >-<"
+    no_char_title: "You dont have any characters registered"
+    no_char_desc: "Hm...\nI can't find any characters related to you.\nPlease create one and the try again."
+    fin: "I registered you to the LFG.\nYou will get a message right before it starts"
+    max_players_title: "No space"
+    max_players_desc: "Im sorry i cant register you to this lfg because there is no space.\n
+    However you register as a substitute"
+
+  group@set_reminder:
+    header: "Choose a time"
+    desc: "Choose a time when you want to be reminded.\n**Note: **Only one reminder is active per lfg."
+    on_title: "Reminder is set."
+    desc_ok: "Thank you.\nI will remind you when the time comes."
+
+group@modals:
+  group@char_create:
+    name_label: "Name you character:"
+    name_placeholder: "The name of your character"
+    gs_label: "Gear score:"
+    gs_placeholder: "Your gear score"
+
+  group@time_grab:
+    time_label: "Input event time: "
+    placeholder: "Format: dd.mm.jj/hh:mm"
+
+  group@event_base:
+    title_label: "Event title: "
+    max_player_label: "Maximal players: "
+    desc_label: "Event description: "
+
+  group@preset_modal:
+    name_label: "Preset name: "
+
+group@Errors:
+
+  group@guild_only:
+    title: "Not in a guild"
+    desc: "Commands are guild only.\nPlease use the command in a discord server."
+
+  group@default:
+    title: "Whoopsie"
+    desc: "Well this is awkward.\nI dont know how to handle what just happened\n
+    Should we try again? If i persists would you be so kind and contact my staff that something is wrong\nSupport [server]({server})"
+
+    report: "Error in server `{server_id}` | {server_name}\nInvoked from user {user_id} | {user_name}\nTook {seconds}\n```\n{error}\n```"
+
+  group@number_conversion:
+    title: "Not a number"
+    desc: "`{num}` is not a number.\n Please give me a valid number so we can set things up."
+
+  group@date_conversion:
+    title: "Invalid date"
+    desc: "I cant work with the format of the date you provided :(\nThe date should be in this format (**dd.mm.jj/hh:mm**) but yours is `{date}`"
+
+  group@preset_not_found:
+    title: "Can't find preset"
+    desc: "According to my papers we dont have a LFG preset with the name **{name}** registered.\nPlease check the name and try again."
+
+  group@timout:
+    title: "You took to long :("
+    desc: "You took too long to do that.\nI will now give my attention to other stuff.\nIf you want to retry you can do so."
+
+  group@date_past:
+    title: "Date is in the past"
+    desc: "The date you provided is in the past.\nI can't work with that ;("
+
+  group@InvalidNumber:
+    title: "Invalid number"
+    desc: "You gave me a number i cant work with.\nPlease try again with a valid number."
+
+  group@event_not_found:
+    title: "Event not found"
+    desc: "I cant find the event that depends on this message."
+
+  group@forbidden:
+    title: "Not allowed"
+    desc: "I dont have the permission to do what i just did.\nPlease check the bots permissions.\nUsually this is a result of the bot cant see the channel where the message is."
+
+  group@lfg_full:
+    title: "LFG full"
+    desc: "The LFG seems to be full. :(\nBut you can always register as a substitute."
+
+  group@lfg_req_not_met:
+    title: "Can not register"
+    desc: You do not have a character that met the requirements to be part of this lfg.
+          This can happen because you dont have a character that can be played as a support
+          or the characters in your roster are to frequent in this lfg.
+
+  group@no_prio_role:
+    title: "Not prioritized"
+    desc: Only people with one of the following roles can join this lfg.
+          {roles}
+          This setting will be ignored <t:{time}:R>
+
+  group@role_not_found:
+    title: "Can't find role"
+    desc: "Im sorry.\nI cant find a role with this name or id: `{role_name}`"
+
+
+  group@not_manager:
+    title: "You can't manage the bot."
+    desc: "To do this action you need to have **ADMIN** permissions or have the role {role}"
+    desc_no_role: "Todo this action you need **ADMIN** permission or a special role which you can setup with `config manager_role`."

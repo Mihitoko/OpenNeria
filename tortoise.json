@@ -1,0 +1,24 @@
+{
+  "connections": {
+    "main": {
+      "engine": "tortoise.backends.asyncpg",
+      "credentials": {
+        "host": "<host_ip>",
+        "port": 5432,
+        "user": "<db_user>",
+        "password": "<db_user_password>",
+        "database": "<db_name>",
+        "minsize": 1,
+        "maxsize": 90
+      }
+    }
+  },
+  "apps": {
+    "models": {
+      "models": [
+        "persistence.models"
+      ],
+      "default_connection": "main"
+    }
+  }
+}
