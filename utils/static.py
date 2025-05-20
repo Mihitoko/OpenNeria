@@ -1,13 +1,18 @@
-class PlayerClass:
-    def __init__(self, name: str, class_id, group_id, emoji_id: int = None, tags=None, emoji_name=None):
-        self.class_id = class_id
-        self.group_id = group_id
+class ClassRepresentation:
+    def __init__(self, name: str, class_id: int, emoji_name: str):
         self.name = name
+        self.class_id = class_id
+        self.emoji_name = emoji_name
+
+class PlayerClass(ClassRepresentation):
+    def __init__(self, name: str, class_id, main_class: ClassRepresentation, emoji_id: int = None, tags=None, emoji_name=None):
+        e_name = emoji_name
+        if e_name is None:
+            e_name = name.lower()
+        super().__init__(name, class_id, e_name)
+
+        self.main_class = main_class
         self.emoji_id = emoji_id
-        if emoji_name is None:
-            self.emoji_name = self.name.lower()
-        else:
-            self.emoji_name = emoji_name
         if tags is None:
             self.tags = []
         else:
@@ -16,14 +21,17 @@ class PlayerClass:
     def has_tag(self, tag: str):
         return tag in self.tags
 
-
 class MainClasses:
-    MAGE = 0
-    GUNNER = 1
-    MARSHALL_ARTIST = 2
-    WARRIOR = 3
-    ASSASSIN = 4
-    SPECIALIST = 5
+    MAGE = ClassRepresentation("Mage", 0, 'mage')
+    GUNNER = ClassRepresentation("Gunner", 1, 'gunner')
+    MARSHALL_ARTIST = ClassRepresentation("Martial Artist", 2, 'martial_artist')
+    WARRIOR = ClassRepresentation("Warrior", 3, 'warrior')
+    ASSASSIN = ClassRepresentation("Assassin", 4, 'assassin')
+    SPECIALIST = ClassRepresentation("Specialist", 5, 'specialist')
+
+    @classmethod
+    def get_all_classes(cls):
+        return [cls.MAGE, cls.GUNNER, cls.MARSHALL_ARTIST, cls.WARRIOR, cls.ASSASSIN, cls.SPECIALIST]
 
 
 class StaticIdMaps:

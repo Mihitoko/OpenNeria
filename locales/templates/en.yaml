@@ -46,16 +46,17 @@ group@Commands:
     group@Register:
 
       title: "Register a new character."
-      desc_first: "Hello im Neria ^^\nTime to setup your first character.\n
-      To start please select the class your character is from below.\n
-      After that i'll send you a paper where you can fill out information like name and gear score"
-      desc: "Okay lets register a new character.\nPlease select the class from bellow."
-
+      desc: "Please select the subclass from bellow."
       bard_special: "Ohh a Bard...\nThese are pretty rare but don't worry i can already see the people gathering 
       around you because they need supporters for raids hehe~.\n\nAnyway **{name}** is registered."
 
       fin: "I registered **{name} ({class_name} | {lvl})** for you.\nYou can always reach out to me when you want to plan a new raid."
       modal_title: "Register your character"
+      main_class_title: "Register a new character."
+      main_class_desc: "Please select the main class of the character you want to register."
+      main_class_desc_first: "Hello im Neria ^^\nTime to setup your first character.\n
+      To start please select the main class for your character is from below.\n
+      After that you can select the actual subclass you want to play and the and in the last step the name and gear score."
 
     group@Edit:
       title: "Edit your characters"
