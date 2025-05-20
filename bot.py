@@ -134,17 +134,8 @@ class Neria(AutoShardedBot):
         await self.wait_until_ready()
         t = time.time()
         logger.info("Updating emojis...")
-        try:
-            emoji_server_id = ConfigManager.get_setting("emoji_server")
-            emoji_server = self.get_guild(emoji_server_id)
-            if emoji_server is None:
-                raise KeyError
-        except KeyError:
-            logger.error("Can't update emojis because emoji_server is not configured "
-                         "or not available. Please check the config file")
-            return
 
-        remote_emojis = emoji_server.emojis
+        remote_emojis = await self.fetch_application_emojis()
         i: os.DirEntry
         local_emojis = [i for i in os.scandir("resources/images/emojis")]
 
@@ -158,13 +149,13 @@ class Neria(AutoShardedBot):
             if len(delete_q) != 0:
                 await asyncio.gather(*delete_q, return_exceptions=True)
 
-            remote_emojis = emoji_server.emojis
+            remote_emojis = []
         created_futures = []
         for emoji in local_emojis:
             remote_emote = discord.utils.get(remote_emojis, name=emoji_prefix + emoji.name.split(".")[0])
             if remote_emote is None:
                 with open(emoji.path, "rb") as emoji_image:  # rb = Read Binary
-                    new_emote = emoji_server.create_custom_emoji(name=emoji_prefix + emoji.name.split(".")[0],
+                    new_emote = self.create_application_emoji(name=emoji_prefix + emoji.name.split(".")[0],
                                                                  image=emoji_image.read())
                     created_futures.append(new_emote)
                     counter += 1
