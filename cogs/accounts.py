@@ -9,7 +9,7 @@ from persistence.models import Server, Users, PlayerCharacter
 from ui.modals.settings_modals import CharacterCreateModal
 from ui.views.selects import CharactersSelectView, ClassesSelectView
 from utils.overwrites import BetterEmbed, LangAvailable
-from utils.static import StaticIdMaps, PlayerClass
+from utils.static import StaticIdMaps, PlayerClass, MainClasses, ClassRepresentation
 
 
 class AccountManager(GroupCog, LangAvailable, group_name="character", group_description='Manage your account'):
@@ -28,19 +28,31 @@ class AccountManager(GroupCog, LangAvailable, group_name="character", group_desc
         user = await Users.get_safe(interaction.user.id)
         await user.fetch_characters()
         lang = self.get_lang(server.lang).Register
+
+        embed = BetterEmbed(BetterEmbed.DEFAULT)
+        embed.set_default_thumbnail()
+        embed.set_header(lang.main_class_title.get_string())
+        if len(user.characters) == 0:
+            embed.description = lang.main_class_desc_first.get_string()
+        else:
+            embed.description = lang.main_class_desc.get_string()
+        embed.footer_from_interaction(interaction)
+
+        main_classes = MainClasses.get_all_classes()
+        select = ClassesSelectView(interaction.user, to_choose=main_classes)
+        await interaction.response.send_message(embed=embed, view=select, ephemeral=True)
+        clazz: ClassRepresentation
+        interaction, clazz = await select.get_result()
+
         embed = BetterEmbed(BetterEmbed.DEFAULT)
         embed.set_default_thumbnail()
         embed.set_header(lang.title.get_string())
         embed.footer_from_interaction(interaction)
-        if len(user.characters) == 0:
-            embed.description = lang.desc_first.get_string()
-        else:
-            embed.description = lang.desc.get_string()
-        choose_from = StaticIdMaps.PLAYER_CLASSES.copy()
+        embed.description = lang.desc.get_string()
+        choose_from = [c for c in StaticIdMaps.PLAYER_CLASSES if c.main_class.class_id == clazz.class_id]
         choose_from.sort(key=lambda item: item.name)
         select = ClassesSelectView(interaction.user, to_choose=choose_from)
-        clazz: PlayerClass
-        await interaction.response.send_message(embed=embed, view=select, ephemeral=True)
+        await interaction.response.edit_message(embed=embed, view=select)
         interaction, clazz = await select.get_result()
         modal = CharacterCreateModal(title=lang.modal_title.get_string(), lang=server.lang)
         await interaction.response.send_modal(modal)

@@ -10,7 +10,7 @@ from persistence.models import PlayerCharacter, Event, Server
 from utils.media_manager import MediaManager
 
 from utils.overwrites import FixedView
-from utils.static import PlayerClass
+from utils.static import PlayerClass, ClassRepresentation
 from utils.utils import get_date_time_str
 
 
@@ -118,7 +118,7 @@ class CharactersSelectView(SelectView):
 
 class ClassesSelectView(SelectView):
 
-    def __init__(self, user: discord.User, to_choose: list[PlayerClass]):
+    def __init__(self, user: discord.User, to_choose: list[ClassRepresentation]):
         super(ClassesSelectView, self).__init__(user, to_choose)
         self.component.callback = self.selected_callback
 
