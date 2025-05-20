@@ -68,7 +68,9 @@ class StaticIdMaps:
         PlayerClass("Artist", 21, MainClasses.SPECIALIST, tags=["support"]),
         PlayerClass("Aeromancer", 22, MainClasses.SPECIALIST),
         PlayerClass("Slayer", 23, MainClasses.WARRIOR),
-        PlayerClass("Soul eater", 24, MainClasses.ASSASSIN, emoji_name="souleater")
+        PlayerClass("Soul eater", 24, MainClasses.ASSASSIN, emoji_name="souleater"),
+        PlayerClass("Breaker", 25, MainClasses.MARSHALL_ARTIST),
+        PlayerClass("Wildsoul", 26, MainClasses.SPECIALIST)
     ]
     DELETE_DELAYS = [
         900, 1800, 3600, 10800, 43200, 86400
