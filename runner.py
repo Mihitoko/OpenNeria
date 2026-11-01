@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import os
 import subprocess
 import sys
 import time
@@ -9,6 +10,8 @@ from tortoise import Tortoise
 from bot import Neria
 from persistence.models import Event
 from utils.config_manager import ConfigManager
+
+FILE_LOGS = os.environ.get("FILE_LOGS") != "false"
 
 ConfigManager.load()
 logger = logging.getLogger("Neria")
@@ -23,8 +26,9 @@ discord_logger = logging.getLogger("discord")
 discord_file_hdlr = logging.FileHandler("discord_log.txt")
 discord_file_hdlr.setFormatter(logging.Formatter(fmt=log_format))
 
-logger.handlers.append(file_hdlr)
-discord_logger.handlers.append(discord_file_hdlr)
+if FILE_LOGS:
+    logger.handlers.append(file_hdlr)
+    discord_logger.handlers.append(discord_file_hdlr)
 
 coloredlogs.install("WARNING", logger=discord_logger, fmt=log_format)
 coloredlogs.install(ConfigManager.get_setting("loglvl"), logger=logger, fmt=log_format)

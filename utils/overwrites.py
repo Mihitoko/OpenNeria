@@ -139,4 +139,4 @@ class HookedTCPConnector(aiohttp.TCPConnector):
         super().__init__(*args, **kwargs)
 
 
-hook_type(aiohttp.TCPConnector, HookedTCPConnector)
+# hook_type(aiohttp.TCPConnector, HookedTCPConnector)
