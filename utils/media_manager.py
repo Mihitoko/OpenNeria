@@ -1,9 +1,11 @@
 import json
+import os
 import random
 
 
 class MediaManager:
     MEDIA: dict
+    MEDIA_BASE_PATH = os.environ.get("NERIA_MEDIA_PATH", "resources")
 
     @classmethod
     def get_all(cls):
@@ -11,7 +13,7 @@ class MediaManager:
 
     @classmethod
     def save(cls):
-        with open("resources/media.json", "w") as file:
+        with open(f"{cls.MEDIA_BASE_PATH}/media.json", "w") as file:
             json.dump(cls.MEDIA, file, indent=2)
 
     @classmethod
@@ -49,7 +51,7 @@ class MediaManager:
 
     @classmethod
     def load(cls):
-        with open("resources/media.json", "r") as file:
+        with open(f"{cls.MEDIA_BASE_PATH}/media.json", "r") as file:
             cls.MEDIA = json.load(file)
 
     @classmethod

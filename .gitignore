@@ -8,8 +8,6 @@ __pycache__
 locales/gen
 /log.txt
 discord_log.txt
-docker-compose.yml
-
 # Config files
 secrets.json
 settings.json
